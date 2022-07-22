@@ -1,0 +1,67 @@
+@use "/src/shared/index" as *;
+
+.header {
+  box-shadow: 0px 2px 8px rgba(61, 79, 92, 0.1);
+  display: flex;
+  height: 76px;
+  justify-content: space-between;
+  padding: 12px 16px;
+  position: fixed;
+  width: 100%;
+
+  @include bp(m) {
+    height: 84px;
+    padding: 16px 55px;
+  }
+}
+
+.header__nav-wrapper {
+  align-items: center;
+  display: flex;
+}
+
+.header__nav-link {
+  color: $grey-700;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05px;
+  line-height: 18px;
+  padding: 0 16px;
+
+  @include bp(m) {
+    margin-left: 42px;
+  }
+}
+
+.header__logo {
+  width: 109.93px;
+}
+
+.header__icon-cart-wrapper {
+  align-items: center;
+  display: flex;
+  position: relative;
+  margin-right: 12px;
+}
+
+.header__icon-cart {
+  height: 20px;
+  width: 18px;
+}
+
+.header__icon-cart-caption {
+  align-items: center;
+  background-color: $grey-700;
+  border-radius: 10px;
+  color: $grey-0;
+  display: flex;
+  font-size: 10px;
+  font-weight: 700;
+  height: 20px;
+  justify-content: center;
+  line-height: 12px;
+  position: absolute;
+  right: -12px;
+  top: 5px;
+  width: 22px;
+}
