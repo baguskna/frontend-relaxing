@@ -6,7 +6,7 @@ import "./category-slider.scss";
 
 const CategorySlider: React.FC = () => {
   const { data, error } = useAllCategories();
-  console.log(data);
+
   return (
     <div className="chip-wrapper">
       {data?.map((category: string) => (

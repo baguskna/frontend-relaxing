@@ -1,0 +1,26 @@
+@use "/src/shared/index" as *;
+
+.breadcrumb {
+  background-color: $grey-200;
+  height: 35px;
+}
+
+.breadcrumb__first-tier {
+  margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 16px;
+  width: 100%;
+
+  @include bp(m) {
+    padding: 0 55px;
+  }
+}
+
+.breadcrumb__inactive-text {
+  color: $grey-400;
+}
+
+.breadcrumb__active-text,
+.breadcrumb__separator {
+  color: $grey-300;
+}

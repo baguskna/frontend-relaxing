@@ -1,16 +1,11 @@
 @use "/src/shared/index" as *;
 
 .chip {
-  align-items: center;
   cursor: pointer;
-  display: flex;
-  height: 97px;
-  justify-content: center;
-  min-width: 144px;
+  padding: 37px;
   
   @include bp(m) {
-    height: 140px;
-    min-width: 234px;
+    padding: 55px;
   }
 }
 

@@ -1,5 +1,6 @@
 export type TProduct = {
   brand: string;
+  category: string;
   id?: number;
   images: string[];
   price: number;
