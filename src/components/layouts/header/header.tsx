@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import iconSirclo from "../../../icons/icon-sirclo.svg";
 import iconCart from "../../../icons/icon-cart.svg";
@@ -8,10 +9,12 @@ const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="header__nav-wrapper">
-        <img src={iconSirclo} alt="Sirclo" className="header__logo" />
-        <a href="#" className="header__nav-link">
+        <Link to="/">
+          <img src={iconSirclo} alt="Sirclo" className="header__logo" />
+        </Link>
+        <Link className="header__nav-link" to="/product">
           Produk
-        </a>
+        </Link>
       </div>
       <figure className="header__icon-cart-wrapper">
         <img src={iconCart} alt="" className="header__icon-cart" />
