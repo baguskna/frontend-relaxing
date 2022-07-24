@@ -1,0 +1,41 @@
+@use "/src/shared/index" as *;
+
+.product {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.product__first-tier {
+  padding: 24px 16px;
+
+  @include bp(m) {
+    padding: 30px 55px;
+  }
+}
+
+.product__copy-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  @include bp(s) {
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.product__headline {
+  color: $grey-700;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 30px;
+}
+
+.product__total-product {
+  color: $grey-700;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.05px;
+  line-height: 18px;
+}
