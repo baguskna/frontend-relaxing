@@ -1,7 +1,13 @@
 $breakpoints: (
   's': 600px,
   'm': 1024px,
-  'l': 1400px
+  'l': 1400px,
+) !default;
+
+$breakpoints-only: (
+  'sm-only': 599px,
+  'md-only': 1023px,
+  'lg-only': 1399px,
 ) !default;
 
 /// Mixin to manage responsive breakpoints
@@ -13,6 +19,13 @@ $breakpoints: (
   @if map-has-key($breakpoints, $breakpoint) {
     // Prints a media query based on the value
     @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @if map-has-key($breakpoints-only, $breakpoint) {
+    // Prints a media query based on the value
+    @media (max-width: map-get($breakpoints-only, $breakpoint)) {
       @content;
     }
   }
