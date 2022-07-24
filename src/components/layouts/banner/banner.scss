@@ -1,0 +1,41 @@
+@use "/src/shared/index" as *;
+
+.banner {
+  // background: linear-gradient(90deg, #000000 0%, #000000 69.37%, #000000 89.11%, rgba(0, 0, 0, 0) 100%);
+  background-color: $grey-900;
+}
+
+.banner__content-copy {
+  padding: 25px 22px;
+  width: 50%;
+
+  @include bp(m) {
+    padding: 96px 90px 100px;
+  }
+}
+
+.banner__title {
+  color: $grey-300;
+  font-size: 8px;
+  line-height: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  @include bp(s) {
+    font-size: 32px;
+    line-height: 48px;
+  }
+}
+
+.banner__main-title {
+  color: $grey-200;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 22px;
+  text-transform: uppercase;
+
+  @include bp(s) {
+    font-size: 64px;
+    line-height: 88px;
+  }
+}

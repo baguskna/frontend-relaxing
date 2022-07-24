@@ -1,7 +1,7 @@
 import React from "react";
 
-import iconSirclo from "../../icons/icon-sirclo.svg";
-import iconCart from "../../icons/icon-cart.svg";
+import iconSirclo from "../../../icons/icon-sirclo.svg";
+import iconCart from "../../../icons/icon-cart.svg";
 import "./header.scss";
 
 const Header: React.FC = () => {

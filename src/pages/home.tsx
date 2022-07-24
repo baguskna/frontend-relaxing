@@ -1,13 +1,20 @@
 import React from "react";
 
-import Header from "../components/layouts/header";
+import Banner from "../components/layouts/banner/banner";
+import CategorySlider from "../components/layouts/category-slider/category-slider";
+import Header from "../components/layouts/header/header";
+import "./home.scss";
 
 const Home: React.FC = () => {
   return (
-    <div>
+    <>
       <Header />
       {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
-    </div>
+      <div className="main-content">
+        <Banner />
+        <CategorySlider />
+      </div>
+    </>
   );
 };
 
