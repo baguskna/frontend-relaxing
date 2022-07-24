@@ -14,12 +14,7 @@ const Banner: React.FC = () => {
             On all dress
           </h1>
         </div>
-        <div className="banner__content-img">
-          {/* <picture> */}
-          {/* <img src="/src/images/img-banner-mobile.png" alt="" />
-          <img src="/src/images/img-banner-desktop.png" alt="" /> */}
-          {/* </picture> */}
-        </div>
+        <div className="banner__content-img"></div>
       </div>
     </div>
   );

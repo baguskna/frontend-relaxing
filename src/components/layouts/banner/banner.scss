@@ -1,8 +1,13 @@
 @use "/src/shared/index" as *;
 
 .banner {
-  // background: linear-gradient(90deg, #000000 0%, #000000 69.37%, #000000 89.11%, rgba(0, 0, 0, 0) 100%);
   background-color: $black-0;
+}
+
+.banner__content {
+  display: flex;
+  overflow: hidden;
+  position: relative;
 }
 
 .banner__content-copy {
@@ -11,6 +16,16 @@
 
   @include bp(m) {
     padding: 96px 90px 100px;
+  }
+}
+
+.banner__content-img {
+  background-image: url("../../../icons/icon-banner-mobile.svg");
+  background-repeat: no-repeat;
+  width: 50%;
+
+  @include bp(s) {
+    background-image: url("../../../icons/icon-banner-desktop.svg");
   }
 }
 
