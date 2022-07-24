@@ -1,0 +1,24 @@
+@use "/src/shared/index" as *;
+
+.chip {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  height: 97px;
+  justify-content: center;
+  min-width: 144px;
+  
+  @include bp(m) {
+    height: 140px;
+    min-width: 234px;
+  }
+}
+
+.chip-text {
+  color: $grey-800;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  line-height: 30px;
+  text-transform: uppercase;
+}
