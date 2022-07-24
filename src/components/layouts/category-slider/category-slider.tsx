@@ -1,16 +1,17 @@
 import React from "react";
+import { useAllCategories } from "../../../hooks";
 
 import ChipSlider from "../../uis/chip-slider/chip-slider";
 import "./category-slider.scss";
 
 const CategorySlider: React.FC = () => {
+  const { data, error } = useAllCategories();
+  console.log(data);
   return (
     <div className="chip-wrapper">
-      <ChipSlider />
-      <ChipSlider />
-      <ChipSlider />
-      <ChipSlider />
-      <ChipSlider />
+      {data?.map((category: string) => (
+        <ChipSlider key={category} category={category} />
+      ))}
     </div>
   );
 };
