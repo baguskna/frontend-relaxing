@@ -2,6 +2,7 @@ import React from "react";
 
 import Banner from "../components/layouts/banner/banner";
 import CategorySlider from "../components/layouts/category-slider/category-slider";
+import Footer from "../components/layouts/footer/footer";
 import Header from "../components/layouts/header/header";
 import "./home.scss";
 
@@ -13,6 +14,7 @@ const Home: React.FC = () => {
       <div className="main-content">
         <Banner />
         <CategorySlider />
+        <Footer />
       </div>
     </>
   );
