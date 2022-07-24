@@ -1,0 +1,9 @@
+@use "/src/shared/index" as *;
+
+.main-content {
+  margin-top: 76px;
+
+  @include bp(m) {
+    margin-top: 84px;
+  }
+}
