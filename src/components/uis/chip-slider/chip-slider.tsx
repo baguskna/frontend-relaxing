@@ -2,11 +2,15 @@ import React from "react";
 
 import "./chip-slider.scss";
 
-const ChipSlider: React.FC = () => {
+type TChipSliderProps = {
+  category: string;
+};
+
+const ChipSlider: React.FC<TChipSliderProps> = ({ category }) => {
   return (
     <a className="chip">
       <div>
-        <h3 className="chip-text">Chanel</h3>
+        <h3 className="chip-text">{category}</h3>
       </div>
     </a>
   );

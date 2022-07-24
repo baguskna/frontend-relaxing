@@ -4,14 +4,7 @@
   display: flex;
   margin: 0 auto;
   max-width: 1170px;
+  overflow: auto;
+  white-space: nowrap;
   width: 100%;
-
-  @include bp(m) {
-    justify-content: center;
-  }
-
-  @include bp(md-only) {
-    overflow: auto;
-    white-space: nowrap;
-  }
 }
