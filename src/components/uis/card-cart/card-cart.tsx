@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Counter from "../counter/counter";
 
 import iconTrash from "../../../icons/icon-delete.svg";
 
 const CardCart: React.FC = () => {
+  const [counter, setCounter] = useState<number>(1);
+
   return (
     <article className="flex card-cart relative">
       <figure className="shrink-0">
@@ -16,13 +18,13 @@ const CardCart: React.FC = () => {
       <div className="pl-3 sm:pl-4 sm:flex sm:justify-between	sm:w-full">
         <p className="text-sm font-normal text-grey-700">Item</p>
         <div className="hidden sm:block">
-          <Counter />
+          <Counter counter={counter} setCounter={setCounter} />
         </div>
         <p className="text-sm font-normal text-grey-700 pt-3 sm:pt-0">
           USD 100
         </p>
         <div className="sm:hidden">
-          <Counter />
+          <Counter counter={counter} setCounter={setCounter} />
         </div>
       </div>
       <figure className="absolute top-0 right-0 cursor-pointer sm:bottom-0 sm:top-[unset] sm:left-[94px] sm:right-[unset]">
