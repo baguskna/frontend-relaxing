@@ -6,6 +6,7 @@ import Breadcrumb from "../../components/uis/breadcrumb/breadcrumb";
 import iconBag from "../../icons/icon-bag.svg";
 import iconChecklist from "../../icons/icon-checklist.svg";
 import iconTag from "../../icons/icon-tag.svg";
+import Counter from "../../components/uis/counter/counter";
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams();
@@ -46,22 +47,8 @@ const ProductDetail: React.FC = () => {
           <p className="pb-4">{data?.description}</p>
           <div className="counter">
             <h6 className="font-bold text-sm">Jumlah</h6>
-            <div className="border-grey-300 border rounded w-fit flex mt-3">
-              <button
-                className="w-9 h-9 flex items-center justify-center text-grey-400"
-                onClick={() => setCounter(counter - 1)}
-              >
-                -
-              </button>
-              <div className="w-9 h-9 flex items-center justify-center text-grey-400">
-                {counter}
-              </div>
-              <button
-                className="w-9 h-9 flex items-center justify-center text-grey-400"
-                onClick={() => setCounter(counter + 1)}
-              >
-                +
-              </button>
+            <div className="mt-3">
+              <Counter />
             </div>
             <div className="pt-4">
               <button
