@@ -2,6 +2,13 @@
 
 .banner {
   background-color: $black-0;
+  background-image: url("../../../icons/icon-banner-mobile.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+
+  @include bp(s) {
+    background-image: url("../../../icons/icon-banner-desktop.svg");
+  }
 }
 
 .banner__content {
@@ -12,20 +19,9 @@
 
 .banner__content-copy {
   padding: 25px 22px;
-  width: 50%;
 
   @include bp(m) {
     padding: 96px 90px 100px;
-  }
-}
-
-.banner__content-img {
-  background-image: url("../../../icons/icon-banner-mobile.svg");
-  background-repeat: no-repeat;
-  width: 50%;
-
-  @include bp(s) {
-    background-image: url("../../../icons/icon-banner-desktop.svg");
   }
 }
 

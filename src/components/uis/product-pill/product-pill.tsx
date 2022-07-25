@@ -16,9 +16,9 @@ const ProductPill: React.FC<TProduct> = ({
   return (
     <article className="w-[calc(50%-6px)] mb-6 sm:w-[calc(33%-6px)] lg:w-[calc(25%-15px)] cursor-pointer">
       <Link to={`/product/${category}/${id}`}>
-        <figure className="relative pb-[56.25%] overflow-hidden">
+        <figure>
           <img
-            className="absolute inset-0 object-cover w-full h-full"
+            className="w-full h-[100px] object-cover sm:h-[150px] lg:h-[200px]"
             src={thumbnail}
             alt={title}
           />

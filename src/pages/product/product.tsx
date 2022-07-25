@@ -8,7 +8,9 @@ import { TProduct } from "../../utils/interfaces";
 import "./product.scss";
 
 const Product: React.FC = () => {
-  const { data, error } = useAllProducts();
+  const location = useLocation().pathname.split("/");
+  const category = location[location.length - 1];
+  const { data, error } = useAllProducts(category);
   console.log(data);
 
   return (
@@ -17,7 +19,11 @@ const Product: React.FC = () => {
       <div className="product">
         <div className="product__first-tier">
           <div className="product__copy-wrapper">
-            <h1 className="product__headline">Semua Produk</h1>
+            {category === "product" ? (
+              <h1 className="product__headline">Semua Produk</h1>
+            ) : (
+              <h1 className="product__headline">Produk {category}</h1>
+            )}
             {data?.products?.length ? (
               <p className="product__total-product">
                 Menampilkan {data?.products?.length} produk

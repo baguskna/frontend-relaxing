@@ -2,6 +2,7 @@
 
 .main-content {
   margin-top: 76px;
+  min-height: calc(100vh - 123px);
 
   @include bp(m) {
     margin-top: 84px;
