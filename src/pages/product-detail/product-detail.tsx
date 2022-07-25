@@ -12,23 +12,46 @@ const ProductDetail: React.FC = () => {
   const { id } = useParams();
   const { data, error } = useProductDetail(id!);
   const [counter, setCounter] = useState<number>(1);
-  console.log(data);
+  const [activeImage, setActiveImage] = useState<number>(0);
+
+  const addToCart: () => void = () => {
+    const data = JSON.parse(localStorage.getItem("cart") || "[]");
+
+    // update data in localStorage if find the same id
+    const index = data.findIndex((a: any) => a.id === id);
+    if (index !== -1) {
+      data[index].count = counter;
+    }
+    // add new data if not find the same id
+    else {
+      data.push({ id, count: counter });
+    }
+    localStorage.setItem("cart", JSON.stringify(data));
+  };
 
   return (
     <div>
       <Breadcrumb path={useLocation().pathname} />
       <div className="lg:flex lg:px-[55px] max-w-[1440px] lg:mx-auto lg:pt-6">
         <div className="lg:max-w-[570px] lg:w-full images__wrapper lg:flex lg:flex-row">
-          <div className="hidden lg:flex flex-col pr-[30px]">
-            {data?.images.map((image: string) => (
-              <figure className="cursor-pointer mb-6">
+          <div className="hidden lg:flex flex-col pr-[30px] shrink-0">
+            {data?.images.map((image: string, index: number) => (
+              <figure
+                key={index}
+                className={`cursor-pointer mb-6 ${
+                  activeImage === index
+                    ? "border-2 border-grey-800"
+                    : "border-2 border-transparent"
+                }`}
+                onClick={() => setActiveImage(index)}
+              >
                 <img src={image} alt="" className="w-[70px] object-cover" />
               </figure>
             ))}
           </div>
           <figure>
             <img
-              src={data?.images[0]}
+              src={data?.images[activeImage]}
               alt={data?.title}
               className="w-full h-[250px] object-cover sm:h-[350px] lg:h-[300px]"
             />
@@ -48,12 +71,12 @@ const ProductDetail: React.FC = () => {
           <div className="counter">
             <h6 className="font-bold text-sm">Jumlah</h6>
             <div className="mt-3">
-              <Counter />
+              <Counter counter={counter} setCounter={setCounter} />
             </div>
             <div className="pt-4">
               <button
                 className="w-full text-base h-12 py-2 px-4 rounded flex border border-grey-300 rounded items-center justify-center font-bold lg:max-w-[225px]"
-                onClick={() => alert("TODO: Add to cart")}
+                onClick={addToCart}
               >
                 <img src={iconBag} alt="" className="pr-3" />
                 Tambah ke Keranjang

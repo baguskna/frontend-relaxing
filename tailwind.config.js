@@ -14,6 +14,7 @@ module.exports = {
       "grey-900": "#1E272E",
       "blue-300": "#269CD9",
       white: "#fff",
+      transparent: "transparent",
     },
     screens: {
       sm: "600px",
