@@ -16,9 +16,11 @@ const Header: React.FC = () => {
           Produk
         </Link>
       </div>
-      <figure className="header__icon-cart-wrapper">
-        <img src={iconCart} alt="" className="header__icon-cart" />
-        <figcaption className="header__icon-cart-caption">0</figcaption>
+      <figure className="header__icon-cart-wrapper cursor-pointer">
+        <Link to="cart">
+          <img src={iconCart} alt="" className="header__icon-cart" />
+          <figcaption className="header__icon-cart-caption">0</figcaption>
+        </Link>
       </figure>
     </header>
   );

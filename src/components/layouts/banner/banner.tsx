@@ -14,7 +14,6 @@ const Banner: React.FC = () => {
             On all dress
           </h1>
         </div>
-        <div className="banner__content-img"></div>
       </div>
     </div>
   );

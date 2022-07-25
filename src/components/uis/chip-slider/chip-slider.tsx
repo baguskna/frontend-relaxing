@@ -9,7 +9,7 @@ type TChipSliderProps = {
 
 const ChipSlider: React.FC<TChipSliderProps> = ({ category }) => {
   return (
-    <Link className="chip" to={category}>
+    <Link className="chip" to={`/product/${category}`}>
       <div>
         <h3 className="chip-text">{category}</h3>
       </div>
