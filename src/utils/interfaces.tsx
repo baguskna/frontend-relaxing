@@ -6,4 +6,5 @@ export type TProduct = {
   price: number;
   thumbnail: string;
   title: string;
+  count?: number;
 };

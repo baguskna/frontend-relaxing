@@ -1,4 +1,4 @@
-@use "/src/shared/index" as *;
+@use "/src/styles/index" as *;
 
 .header {
   background-color: $grey-0;
@@ -18,12 +18,12 @@
   }
 }
 
-.header__nav-wrapper {
+.header__navWrapper {
   align-items: center;
   display: flex;
 }
 
-.header__nav-link {
+.header__navLink {
   color: $grey-700;
   font-size: 14px;
   font-weight: 500;
@@ -40,19 +40,19 @@
   width: 109.93px;
 }
 
-.header__icon-cart-wrapper {
+.header__iconCartWrapper {
   align-items: center;
   display: flex;
   position: relative;
   margin-right: 12px;
 }
 
-.header__icon-cart {
+.header__iconCart {
   height: 20px;
   width: 18px;
 }
 
-.header__icon-cart-caption {
+.header__iconCartCaption {
   align-items: center;
   background-color: $grey-700;
   border-radius: 10px;

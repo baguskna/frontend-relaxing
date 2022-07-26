@@ -1,11 +1,11 @@
 import React from "react";
 
-import "./footer.scss";
+import styles from "./footer.module.scss";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer">
-      <p className="footer__text">
+    <footer className={styles.footer}>
+      <p className={styles.footer__text}>
         © 2022 Design Starter Kit. Powered by SIRCLO.
       </p>
     </footer>

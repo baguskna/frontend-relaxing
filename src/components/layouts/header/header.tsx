@@ -3,23 +3,28 @@ import { Link } from "react-router-dom";
 
 import iconSirclo from "../../../icons/icon-sirclo.svg";
 import iconCart from "../../../icons/icon-cart.svg";
-import "./header.scss";
+import { useAppContext } from "../../../context/state";
+import styles from "./header.module.scss";
 
 const Header: React.FC = () => {
+  const { cartContext } = useAppContext();
+
   return (
-    <header className="header">
-      <div className="header__nav-wrapper">
+    <header className={styles.header}>
+      <div className={styles.header__navWrapper}>
         <Link to="/">
-          <img src={iconSirclo} alt="Sirclo" className="header__logo" />
+          <img src={iconSirclo} alt="Sirclo" className={styles.header__logo} />
         </Link>
-        <Link className="header__nav-link" to="/product">
+        <Link className={styles.header__navLink} to="/product">
           Produk
         </Link>
       </div>
-      <figure className="header__icon-cart-wrapper cursor-pointer">
+      <figure className={`${styles.header__iconCartWrapper} cursor-pointer`}>
         <Link to="cart">
-          <img src={iconCart} alt="" className="header__icon-cart" />
-          <figcaption className="header__icon-cart-caption">0</figcaption>
+          <img src={iconCart} alt="" className={styles.header__iconCart} />
+          <figcaption className={styles.header__iconCartCaption}>
+            {cartContext?.length}
+          </figcaption>
         </Link>
       </figure>
     </header>
