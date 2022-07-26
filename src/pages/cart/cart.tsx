@@ -3,15 +3,21 @@ import { useLocation } from "react-router-dom";
 
 import Breadcrumb from "../../components/uis/breadcrumb/breadcrumb";
 import CardCart from "../../components/uis/card-cart/card-cart";
+import { useAppContext } from "../../context/state";
 import "./cart.scss";
 
 const Cart: React.FC = () => {
-  const [totalProduct, setTotalProduct] = useState<number>(0);
+  const { cartContext } = useAppContext();
+  const [products, setProducts] = useState<any>();
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem("cart") || "[]");
-    setTotalProduct(data.length);
-  }, [setTotalProduct]);
+    setProducts(cartContext);
+  }, [cartContext, setProducts]);
+
+  // total price
+  const totalPrice = products?.reduce((acc: number, cur: any) => {
+    return acc + cur.price * cur.count;
+  }, 0);
 
   return (
     <div>
@@ -21,16 +27,23 @@ const Cart: React.FC = () => {
           <div className="sm:flex sm:justify-between">
             <h1 className="text-grey-700 font-bold text-2xl">Keranjang</h1>
             <p className="text-grey-700 font-normal text-sm">
-              {totalProduct} Produk
+              {products?.length ?? "0"} Produk
             </p>
           </div>
           <div className="border border-grey-300 mt-4 rounded p-4">
-            {totalProduct > 0 ? (
-              <>
-                <CardCart />
-                <CardCart />
-                <CardCart />
-              </>
+            {products?.length > 0 ? (
+              products?.map((product: any) => {
+                return (
+                  <CardCart
+                    key={product.id}
+                    image={product.image}
+                    id={product.id}
+                    count={product.count}
+                    title={product.title}
+                    price={product.price}
+                  />
+                );
+              })
             ) : (
               <div className="text-center">
                 <h1 className="text-grey-700 font-bold text-2xl">
@@ -44,14 +57,16 @@ const Cart: React.FC = () => {
           </div>
         </div>
         <div>
-          {totalProduct > 0 ? (
+          {products?.length > 0 ? (
             <>
               <div className="mt-[21px] border border-grey-300 rounded p-4 bg-grey-050 sm:mt-0 lg:min-w-[370px]">
                 <div className="flex items-center justify-between">
                   <p className="font-normal text-grey-700 text-xs">
                     Harga barang
                   </p>
-                  <p className="font-normal text-grey-700 text-xs">USD 80</p>
+                  <p className="font-normal text-grey-700 text-xs">
+                    USD {totalPrice}
+                  </p>
                 </div>
                 <div className="flex items-center justify-between pt-2">
                   <p className="font-normal text-grey-700 text-xs">
@@ -70,7 +85,9 @@ const Cart: React.FC = () => {
                   <p className="font-bold text-grey-700 text-xs">
                     Total Tagihan
                   </p>
-                  <p className="font-bold text-grey-700 text-xs">USD 85</p>
+                  <p className="font-bold text-grey-700 text-xs">
+                    USD {totalPrice + 5}
+                  </p>
                 </div>
               </div>
               <button className="bg-blue-300 mt-[21px] text-white	rounded h-12 w-full flex items-center justify-center font-bold text-base">
